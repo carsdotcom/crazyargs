@@ -1,6 +1,6 @@
 {
   "name": "crazyargs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "args processor",
   "main": "lib/index.js",
   "author": {
