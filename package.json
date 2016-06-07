@@ -1,0 +1,36 @@
+{
+  "name": "crazyargs",
+  "version": "0.0.0",
+  "description": "args processor",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Mac Heller-Ogden",
+    "email": "mheller-ogden@cars.com"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --es_staging node_modules/.bin/_mocha",
+    "watch": "node --es_staging node_modules/.bin/_mocha --watch --bail",
+    "coverage": "node --es_staging node_modules/.bin/istanbul cover node_modules/.bin/_mocha",
+    "lint": "node --es_staging node_modules/.bin/eslint ./test/**/*.js ./lib/**/*.js"
+  },
+  "dependencies": {
+    "argv": "0.0.2",
+    "bluebird": "^3.0.6",
+    "keypather": "^2.0.0",
+    "lodash": "^4.13.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
+    "pre-commit": "^1.1.2"
+  },
+  "pre-commit": {
+    "run": [
+      "test",
+      "lint"
+    ]
+  }
+}
