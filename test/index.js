@@ -68,14 +68,22 @@ describe('the args object', function () {
                 type: 'csv,string',
                 addToCollection: true
             });
-            var args = crazy.run([ '--foo.gee=well,wee,,poo', '--foo.bar=bam,doo', '--qux.zip=wer,boo' ]);
+            crazy.option({
+                name: 'qux.dup.goo.dod',
+                type: 'csv,string',
+                addToCollection: true
+            });
+            var args = crazy.run([ '--foo.gee=well,wee,,poo', '--foo.bar=bam,doo', '--qux.zip=wer,bop', '--qux.dup.goo.dod=sis,boo,baa' ]);
             expect(args.collection).to.be.an('array');
             expect(args.collection[0].foo.bar).to.equal('bam');
+            expect(args.collection[0].qux.dup.goo.dod).to.equal('sis');
             expect(args.collection[0].foo.gee).to.equal('well');
             expect(args.collection[0].qux.zip).to.equal('wer');
             expect(args.collection[1].foo.bar).to.equal('doo');
             expect(args.collection[1].foo.gee).to.equal('wee');
-            expect(args.collection[1].qux.zip).to.equal('boo');
+            expect(args.collection[1].qux.zip).to.equal('bop');
+            expect(args.collection[1].qux.dup.goo.dod).to.equal('boo');
+            expect(args.collection[2].qux.dup.goo.dod).to.equal('baa');
             expect(args.collection[3].foo.gee).to.equal('poo');
         });
     });
