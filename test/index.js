@@ -68,14 +68,15 @@ describe('the args object', function () {
                 type: 'csv,string',
                 addToCollection: true
             });
-            var args = crazy.run([ '--foo.gee=well,wee', '--foo.bar=bam,doo', '--qux.zip=wer,boo' ]);
+            var args = crazy.run([ '--foo.gee=well,wee,,poo', '--foo.bar=bam,doo', '--qux.zip=wer,boo' ]);
             expect(args.collection).to.be.an('array');
             expect(args.collection[0].foo.bar).to.equal('bam');
             expect(args.collection[0].foo.gee).to.equal('well');
+            expect(args.collection[0].qux.zip).to.equal('wer');
             expect(args.collection[1].foo.bar).to.equal('doo');
             expect(args.collection[1].foo.gee).to.equal('wee');
-            expect(args.collection[0].qux.zip).to.equal('wer');
             expect(args.collection[1].qux.zip).to.equal('boo');
+            expect(args.collection[3].foo.gee).to.equal('poo');
         });
     });
 });
