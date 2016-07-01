@@ -1,3 +1,3 @@
-# crazyargs
+# powerargs
 
-argv + keypather + lodash = crazyargs
+argv + keypather + lodash = powerargs
